@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshal | Bold Type Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="onlylogo.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1C46DB',
+                        'brand-yellow': '#FFEE00',
+                        'brand-bg': '#FFFCEB',
+                    },
+                    fontFamily: {
+                        'display': ['"Londrina Solid"', 'cursive'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Specific Visual Effects */
+        body {
+            background-color: #FFFCEB;
+            overflow-x: hidden;
+        }
+
+        /* Outline Text Effect */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 3px #1C46DB;
+        }
+
+        .text-outline-white {
+            color: transparent;
+            -webkit-text-stroke: 2px #FFFFFF;
+        }
+
+        /* Squiggly Borders & Blobs */
+        .blob-1 {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        
+        .blob-2 {
+            border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+        }
+
+        .jagged-border {
+            clip-path: polygon(2% 0, 98% 3%, 100% 96%, 4% 100%, 0 4%);
+        }
+
+        /* Reel Video Container */
+        .reel-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 4px 4px 0px #FFEE00;
+            border: 2px solid #1C46DB;
+            transition: transform 0.3s ease;
+        }
+
+        .reel-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mute-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(28, 70, 219, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+        }
+        
+        .mute-btn:hover {
+            background: rgba(255, 238, 0, 0.9);
+            color: #1C46DB;
+            transform: scale(1.1);
+        }
+
+        /* Form Input focus transition */
+        input:focus, textarea:focus {
+            box-shadow: 4px 4px 0px #1C46DB;
+            transform: translateY(-2px);
+            transition: all 0.2s ease;
+        }
+        input, textarea {
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="font-body text-brand-blue antialiased selection:bg-brand-yellow selection:text-brand-blue">
+
+    <main class="w-full flex flex-col">
+
+        <!-- Section 1: Hero -->
+        <section class="w-full min-h-[90vh] flex flex-col md:flex-row items-center justify-between p-8 md:p-24 relative bg-brand-bg border-b-8 border-brand-blue overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-brand-blue blob-1 opacity-10 translate-x-1/4 -translate-y-1/4 pointer-events-none"></div>
+            
+            <div class="z-10 flex-1 w-full relative pt-12 md:pt-0">
+                <h1 class="font-display text-8xl md:text-[12rem] leading-none tracking-wide relative z-10">
+                    <span class="block text-brand-blue">PORT</span>
+                    <span class="block text-outline uppercase">FOLIO</span>
+                </h1>
+                
+                <div class="mt-8 flex flex-col md:flex-row items-start md:items-center gap-6">
+                    <div class="text-sm md:text-base font-bold tracking-widest uppercase text-brand-blue border-l-4 border-brand-yellow pl-4">
+                        Freelance<br>Video Editor &<br>Designer
+                    </div>
+                    <div class="hidden md:block w-24 h-1 bg-brand-blue"></div>
+                    <h2 class="font-display text-5xl md:text-6xl text-brand-blue tracking-wider mt-4 md:mt-0">Harshal</h2>
+                </div>
+            </div>
+
+            <!-- Hand-drawn decorations -->
+            <div class="flex-1 relative w-full h-64 md:h-full mt-12 md:mt-0 z-0">
+                <svg class="absolute top-0 right-0 md:right-10 w-64 md:w-[28rem] h-auto text-brand-blue" viewBox="0 0 200 200" fill="currentColor">
+                    <path d="M42.7,-68.8C54.4,-58.5,62.2,-43.3,71.2,-28.1C80.2,-12.9,90.4,2.3,87.6,15.8C84.8,29.3,69.1,41,54.7,51.8C40.3,62.6,27.1,72.4,12.3,75.4C-2.4,78.4,-18.8,74.5,-32.1,66C-45.4,57.5,-55.6,44.4,-64.3,30.3C-73,16.2,-80.2,1.2,-77.8,-11.9C-75.4,-25,-63.3,-36.2,-50.8,-45.8C-38.3,-55.4,-25.4,-63.4,-10.8,-69.5C3.8,-75.6,17.6,-79.8,31.1,-79.1C44.6,-78.4,58.8,-73.8,42.7,-68.8Z" transform="translate(100 100)" />
+                </svg>
+                <svg class="absolute -top-10 left-10 md:-left-10 w-32 h-32 text-brand-yellow animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
+                    <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" stroke-linejoin="round"/>
+                </svg>
+                <svg class="absolute bottom-10 right-20 md:right-32 w-24 h-24 text-brand-yellow" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M20 80 L30 75 L80 20 C85 15, 90 20, 85 25 L35 80 L20 80 Z M30 75 L35 80 M75 25 L80 30" stroke="#1C46DB" stroke-width="3"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section 2: About Me -->
+        <section class="w-full flex flex-col md:flex-row items-stretch bg-white border-b-8 border-brand-blue relative">
+            <!-- Left Side with Image -->
+            <div class="w-full md:w-1/2 bg-brand-blue flex items-center justify-center p-12 md:p-24 relative overflow-hidden">
+                <!-- Wavy divider effect -->
+                <svg class="absolute top-0 -right-[1px] h-full w-24 text-white hidden md:block" preserveAspectRatio="none" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M0,0 C50,20 50,80 0,100 L100,100 L100,0 Z" />
+                </svg>
+                
+                <div class="relative w-72 h-72 md:w-96 md:h-96 z-10">
+                    <div class="absolute inset-0 bg-brand-yellow transform rotate-3 jagged-border transition-transform hover:rotate-6 duration-300"></div>
+                    <div class="absolute inset-3 border-4 border-brand-blue bg-white overflow-hidden jagged-border">
+                        <img src="yellow pfp.jpg" alt="Harshal Profile" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative squiggles -->
+                    <svg class="absolute -bottom-8 -right-8 w-24 h-24 text-brand-yellow" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M10,10 Q25,30 40,10 T70,10" />
+                        <path d="M10,20 Q25,40 40,20 T70,20" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Right Side Text -->
+            <div class="w-full md:w-1/2 p-8 md:p-24 flex flex-col justify-center">
+                <h2 class="font-display text-6xl md:text-8xl mb-8">ABOUT ME</h2>
+                <p class="text-base md:text-lg font-medium leading-relaxed mb-10 text-gray-800">Hi, I’m Harshal Thorat a freelance video editor, graphic designer, and AI/ML enthusiast from India. I specialize in creating engaging short-form content, cinematic edits, and modern visual designs that help creators and brands stand out online.
+
+With 3 years of editing experience, I focus on delivering clean storytelling, smooth transitions, impactful captions, and attention-grabbing visuals tailored for platforms like Instagram Reels, YouTube Shorts, and social media marketing.I believe in consistent growth, modern aesthetics, and building meaningful digital experiences through design and editing.
+                <div class="space-y-4 font-bold text-sm md:text-base">
+                    <div class="flex items-center">
+                        <span class="w-32 text-brand-blue opacity-70">EMAIL</span>
+                        <a href="mailto:harshalthorat444@gmail.com" class="hover:text-brand-yellow transition-colors">harshalthorat444@gmail.com</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 text-brand-blue opacity-70">INSTAGRAM</span>
+                        <a href="https://instagram.com/harshalt_11" target="_blank" class="hover:text-brand-yellow transition-colors">@harshalt_11</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 text-brand-blue opacity-70">MOBILE</span>
+                        <span>+91 8767505476</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: My Work (Reels) -->
+        <section class="w-full p-8 md:p-24 bg-brand-blue border-b-8 border-brand-yellow relative">
+            <div class="text-center mb-16 relative z-10">
+                <h2 class="font-display text-7xl md:text-8xl text-brand-yellow transform -rotate-2 inline-block">
+                    MY WORK
+                    <svg class="absolute -bottom-6 left-0 w-full h-6 text-white" preserveAspectRatio="none" viewBox="0 0 100 10" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M0,5 Q50,0 100,5" />
+                    </svg>
+                </h2>
+                <p class="text-white mt-8 font-bold tracking-widest uppercase text-lg">Featured Edits & Reels</p>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto z-10 relative">
+                
+                <!-- Reel 1 -->
+                <div class="reel-container">
+                    <video class="reel-video" autoplay loop muted playsinline src="Mateya.mp4"></video>
+                    <button class="mute-btn" aria-label="Toggle Mute">
+                        <svg class="w-6 h-6 volume-off" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Reel 2 -->
+                <div class="reel-container">
+                    <video class="reel-video" autoplay loop muted playsinline src="mateya1.mp4"></video>
+                    <button class="mute-btn" aria-label="Toggle Mute">
+                        <svg class="w-6 h-6 volume-off" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Reel 3 -->
+                <div class="reel-container">
+                    <video class="reel-video" autoplay loop muted playsinline src="beep.mp4"></video>
+                    <button class="mute-btn" aria-label="Toggle Mute">
+                        <svg class="w-6 h-6 volume-off" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Reel 4 -->
+                <div class="reel-container">
+                    <video class="reel-video" autoplay loop muted playsinline src="motion.mp4"></video>
+                    <button class="mute-btn" aria-label="Toggle Mute">
+                        <svg class="w-6 h-6 volume-off" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Reel 5 -->
+                <div class="reel-container">
+                    <video class="reel-video" autoplay loop muted playsinline src="Beep2.mp4"></video>
+                    <button class="mute-btn" aria-label="Toggle Mute">
+                        <svg class="w-6 h-6 volume-off" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Reel 6 -->
+                <div class="reel-container">
+                    <video class="reel-video" autoplay loop muted playsinline src="product.mp4"></video>
+                    <button class="mute-btn" aria-label="Toggle Mute">
+                        <svg class="w-6 h-6 volume-off" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+            </div>
+            
+            <!-- Decorations -->
+            <svg class="absolute top-10 left-10 w-24 h-24 text-brand-yellow hidden md:block" viewBox="0 0 100 100" fill="currentColor">
+                <polygon points="50,0 60,30 100,40 60,50 50,100 40,50 0,40 40,30" />
+            </svg>
+        </section>
+
+        <!-- Section 4: Services -->
+        <section class="w-full bg-brand-bg relative border-b-8 border-brand-blue">
+            <!-- Wavy Header -->
+            <div class="w-full bg-brand-blue text-white pt-16 pb-24 md:pb-32 relative">
+                <h2 class="font-display text-6xl md:text-8xl text-center text-outline-white mb-2">SERVICES OFFERED</h2>
+                
+                <!-- Bottom wave -->
+                <svg class="absolute bottom-0 left-0 w-full h-16 md:h-24 text-brand-bg translate-y-[1px]" preserveAspectRatio="none" viewBox="0 0 1200 120" fill="currentColor">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C52.16,104.59,105,108.34,157.6,100.3,212.18,91.93,266.07,70.52,321.39,56.44Z"></path>
+                </svg>
+            </div>
+
+            <div class="max-w-6xl mx-auto p-8 md:p-24 grid md:grid-cols-2 gap-16 text-center md:text-left">
+                <div class="bg-white p-8 rounded-2xl border-4 border-brand-blue shadow-[8px_8px_0px_#FFEE00] transition-transform hover:-translate-y-2">
+                    <h3 class="font-display text-4xl md:text-5xl mb-6 text-brand-blue">VIDEO EDITING</h3>
+                    <p class="text-base font-medium mb-6 text-gray-800">Develop a cohesive visual identity for your brand through dynamic video. Whether you're launching a new venture or refreshing an existing feed, I'll craft reels and long-form content that reflects your values and stands out in your market.</p>
+                    <p class="text-sm font-bold uppercase tracking-wider text-brand-blue bg-brand-yellow inline-block px-3 py-1 rounded">Rates start at ₹999</p>
+                    <p class="text-sm text-gray-500 mt-3">Includes color grading, sound design, and custom transitions.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border-4 border-brand-blue shadow-[8px_8px_0px_#FFEE00] transition-transform hover:-translate-y-2">
+                    <h3 class="font-display text-4xl md:text-5xl mb-6 text-brand-blue">MOTION GRAPHICS</h3>
+                    <p class="text-base font-medium mb-6 text-gray-800">Unique, hand-drawn or digital animations tailored to your needs—perfect for marketing, editorial content, packaging, merchandise, or personal projects. Each piece is designed to bring personality, creativity, and visual impact to your story.</p>
+                    <p class="text-sm font-bold uppercase tracking-wider text-brand-blue bg-brand-yellow inline-block px-3 py-1 rounded">Rates start at ₹1999</p>
+                    <p class="text-sm text-gray-500 mt-3">For custom animated intros, lower thirds, and spot illustrations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Why Work With Me (Client Feedback) -->
+        <section class="w-full bg-white text-brand-blue flex flex-col md:flex-row border-b-8 border-brand-blue relative p-8 md:p-24 gap-12">
+            <div class="w-full md:w-1/3 flex items-center md:sticky md:top-24 h-max">
+                <h2 class="font-display text-7xl md:text-[6rem] leading-none text-brand-blue transform -rotate-3">
+                    CLIENT<br>FEED<br>BACK
+                </h2>
+                <!-- Decorative Arrow -->
+                <svg class="w-24 h-24 text-brand-yellow ml-4 transform rotate-12 hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
+                    <path d="M20,50 L80,50 M60,30 L80,50 L60,70" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 md:pt-0">
+                
+                <!-- Feedback 1: Buzzscript -->
+                <div class="relative bg-brand-bg p-8 rounded-xl border-4 border-brand-blue">
+                    <svg class="absolute -left-4 -top-4 w-10 h-10 text-brand-yellow bg-brand-blue rounded-full p-2 border-2 border-brand-blue" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <p class="text-base italic font-semibold text-gray-800">"I needed a fresh look for my business, and the reels came out better than I imagined. Super professional and easy to work with!"</p>
+                    <p class="text-sm font-bold mt-4 tracking-widest text-brand-blue uppercase">— Buzzscript</p>
+                </div>
+
+                <!-- Feedback 2: Mateya -->
+                <div class="relative bg-brand-bg p-8 rounded-xl border-4 border-brand-blue">
+                    <svg class="absolute -left-4 -top-4 w-10 h-10 text-brand-yellow bg-brand-blue rounded-full p-2 border-2 border-brand-blue" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <p class="text-base italic font-semibold text-gray-800">"The custom animations brought so much personality to our campaign. Clean, creative, and exactly on brief. Highly recommended!"</p>
+                    <p class="text-sm font-bold mt-4 tracking-widest text-brand-blue uppercase">— Mateya</p>
+                </div>
+
+                <!-- Feedback 3: BeepEvent -->
+                <div class="relative bg-brand-bg p-8 rounded-xl border-4 border-brand-blue">
+                    <svg class="absolute -left-4 -top-4 w-10 h-10 text-brand-yellow bg-brand-blue rounded-full p-2 border-2 border-brand-blue" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <p class="text-base italic font-semibold text-gray-800">"Harshal's editing transformed our event highlights into an energetic, engaging masterpiece. Captures the vibe perfectly every time."</p>
+                    <p class="text-sm font-bold mt-4 tracking-widest text-brand-blue uppercase">— BeepEvent</p>
+                </div>
+
+                <!-- Feedback 4: Bluetyega -->
+                <div class="relative bg-brand-bg p-8 rounded-xl border-4 border-brand-blue">
+                    <svg class="absolute -left-4 -top-4 w-10 h-10 text-brand-yellow bg-brand-blue rounded-full p-2 border-2 border-brand-blue" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <p class="text-base italic font-semibold text-gray-800">"Fast turnaround and incredible attention to detail. Our social media engagement skyrocketed after we started collaborating."</p>
+                    <p class="text-sm font-bold mt-4 tracking-widest text-brand-blue uppercase">— Bluetyega</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 6: Contact & Form -->
+        <section class="w-full flex flex-col md:flex-row min-h-screen">
+            <!-- Left Contact Info -->
+            <div class="w-full md:w-1/2 p-8 md:p-24 flex flex-col justify-center bg-brand-blue text-white relative">
+                <h2 class="font-display text-6xl md:text-[7rem] leading-none text-brand-yellow mb-10 transform -rotate-2">
+                    LET'S<br>WORK<br>TOGETHER!
+                </h2>
+                
+                <div class="space-y-6 font-bold text-base md:text-lg z-10 relative">
+                    <div class="flex flex-col md:flex-row md:items-center">
+                        <span class="w-32 text-brand-yellow opacity-90 mb-1 md:mb-0">EMAIL</span>
+                        <a href="mailto:harshalthorat444@gmail.com" class="hover:text-brand-yellow transition-colors">harshalthorat444@gmail.com</a>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-center">
+                        <span class="w-32 text-brand-yellow opacity-90 mb-1 md:mb-0">INSTAGRAM</span>
+                        <a href="https://instagram.com/harshalt_11" target="_blank" class="hover:text-brand-yellow transition-colors">@harshalt_11</a>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-center">
+                        <span class="w-32 text-brand-yellow opacity-90 mb-1 md:mb-0">MOBILE</span>
+                        <span>+91 8767505476</span>
+                    </div>
+                </div>
+
+                <!-- Decorative drawing -->
+                <svg class="absolute bottom-12 right-12 w-48 h-48 text-brand-yellow opacity-20" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="50" cy="30" r="15" />
+                    <path d="M50 45 L50 80 M30 60 L70 60 M20 100 L50 80 L80 100" />
+                </svg>
+            </div>
+
+            <!-- Right Form Section -->
+            <div class="w-full md:w-1/2 bg-brand-yellow p-8 md:p-24 flex flex-col justify-center relative">
+                <div class="bg-white p-8 md:p-10 rounded-2xl border-4 border-brand-blue shadow-[12px_12px_0px_#1C46DB] w-full max-w-lg mx-auto z-10 relative">
+                    <h3 class="font-display text-4xl text-brand-blue mb-6">SEND A MESSAGE</h3>
+                    
+                    <form id="contact-form" onsubmit="sendToWhatsApp(event)" class="space-y-5">
+                        <div>
+                            <label class="block text-brand-blue font-bold mb-2 text-sm uppercase tracking-wider">Your Name</label>
+                            <input type="text" id="client-name" required placeholder="e.g. Harshal" class="w-full border-4 border-brand-blue p-4 rounded-xl bg-brand-bg text-brand-blue focus:outline-none font-medium placeholder-brand-blue/50">
+                        </div>
+                        <div>
+                            <label class="block text-brand-blue font-bold mb-2 text-sm uppercase tracking-wider">Phone Number</label>
+                            <input type="tel" id="client-phone" required placeholder="e.g. +91 9876543210" class="w-full border-4 border-brand-blue p-4 rounded-xl bg-brand-bg text-brand-blue focus:outline-none font-medium placeholder-brand-blue/50">
+                        </div>
+                        <div>
+                            <label class="block text-brand-blue font-bold mb-2 text-sm uppercase tracking-wider">Project Details / Message</label>
+                            <textarea id="client-message" required rows="4" placeholder="Tell me about your project..." class="w-full border-4 border-brand-blue p-4 rounded-xl bg-brand-bg text-brand-blue focus:outline-none font-medium placeholder-brand-blue/50"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-blue text-brand-yellow font-display text-3xl py-5 rounded-xl border-4 border-brand-blue hover:bg-brand-bg hover:text-brand-blue transition-colors duration-300 transform hover:-translate-y-1 shadow-[4px_4px_0px_#1C46DB] hover:shadow-none mt-4 flex items-center justify-center gap-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.711.927 2.876.927 3.181 0 5.767-2.586 5.767-5.766 0-3.181-2.586-5.769-5.767-5.769zM15.42 13.918c-.187.525-1.096.999-1.543 1.05-.333.037-.871.139-2.736-.632-2.227-.92-3.666-3.208-3.774-3.353-.109-.145-.905-1.205-.905-2.298 0-1.092.567-1.631.768-1.841.201-.21.436-.262.583-.262.146 0 .292 0 .416.006.134.007.315-.052.493.376.183.438.625 1.526.681 1.639.055.113.092.246.018.393-.073.147-.11.238-.22.348-.109.11-.228.241-.326.332-.109.102-.224.214-.1.428.125.214.557.92 1.196 1.492.825.736 1.516.965 1.733 1.073.216.108.344.091.472-.055.128-.145.553-.646.699-.868.146-.222.292-.185.49-.111.198.074 1.258.593 1.475.701.216.108.361.162.414.252.053.09.053.525-.134 1.05z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+                            SEND WHATSAPP
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Background decorative elements -->
+                <svg class="absolute top-10 left-10 w-24 h-24 text-brand-blue opacity-20 hidden md:block" viewBox="0 0 100 100" fill="currentColor">
+                    <polygon points="50,0 60,30 100,40 60,50 50,100 40,50 0,40 40,30" />
+                </svg>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Script for Video Audio Toggle & WhatsApp Submit -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reelContainers = document.querySelectorAll('.reel-container');
+
+            reelContainers.forEach(container => {
+                const video = container.querySelector('video');
+                const muteBtn = container.querySelector('.mute-btn');
+                
+                // SVG Icons for Volume
+                const volumeOffIcon = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path></svg>`;
+                const volumeUpIcon = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M15.707 5.293a1 1 0 010 1.414 5 5 0 010 7.086 1 1 0 11-1.414-1.414 3 3 0 000-4.252 1 1 0 011.414-1.414z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M18.535 2.465a1 1 0 010 1.414 9 9 0 010 12.728 1 1 0 11-1.414-1.414 7 7 0 000-9.899 1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg>`;
+
+                muteBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (video.muted) {
+                        video.muted = false;
+                        muteBtn.innerHTML = volumeUpIcon;
+                        muteBtn.setAttribute('aria-label', 'Mute');
+                    } else {
+                        video.muted = true;
+                        muteBtn.innerHTML = volumeOffIcon;
+                        muteBtn.setAttribute('aria-label', 'Unmute');
+                    }
+                });
+
+                // Optional: Ensure video plays continuously even if interrupted
+                video.addEventListener('ended', () => {
+                    video.play();
+                });
+            });
+        });
+
+        // WhatsApp Form Submission Logic
+        function sendToWhatsApp(event) {
+            event.preventDefault(); // Prevent standard form reload
+            
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const message = document.getElementById('client-message').value;
+
+            // Format the message template
+            const whatsappText = `Hello Harshal! 👋\n\n*New Project Inquiry*\n\n*Name:* ${name}\n*Phone:* ${phone}\n\n*Message/Project Details:*\n${message}`;
+            
+            // Encode the string for URL
+            const encodedText = encodeURIComponent(whatsappText);
+            
+            // Your target WhatsApp Number (with country code, without '+' or leading zeros)
+            const waNumber = '918767505476';
+            
+            // Create WhatsApp API URL
+            const waUrl = `https://wa.me/${waNumber}?text=${encodedText}`;
+            
+            // Open in a new tab/window
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
