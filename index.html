@@ -245,7 +245,11 @@ document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',(
 // Contact form
 function body(){return `Hello Harshal!\n\nNew project inquiry\nName: ${$('#n').value}\nPhone: ${$('#p').value}\nEmail: ${$('#e').value||'-'}\nProject: ${$('#t').value}\nBudget: ${$('#b').value}\n\nDetails:\n${$('#m').value}`}
 $('#form').onsubmit=e=>{e.preventDefault();open('https://wa.me/918767505476?text='+encodeURIComponent(body()),'_blank')};
-$('#mail').onclick=()=>{if(!$('#form').reportValidity())return;location.href='mailto:harshalthorat444@gmail.com?subject='+encodeURIComponent('Project inquiry: '+$('#t').value)+'&body='+encodeURIComponent(body())};
-</script>
+$('#mail').onclick=()=>{
+ if(!$('#form').reportValidity())return;
+ const to='harshalthorat444@gmail.com',su='Project inquiry: '+$('#t').value,bd=body();
+ if(matchMedia('(pointer:coarse)').matches){location.href='mailto:'+to+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(bd);return}
+ open('https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su='+encodeURIComponent(su)+'&body='+encodeURIComponent(bd),'_blank');
+};
 </body>
 </html>
